@@ -1,0 +1,12 @@
+# kiểm tra mod_rewrite có hỗ trợ không
+<IfModule mod_rewrite.c> 
+
+	# bật chức năng mod_rewrite
+	RewriteEngine on
+	
+	# Xác thực với máy chủ rằng thì là thư mục và file trong thư mục là có thực
+	RewriteCond %{REQUEST_FILENAME} !-f
+	RewriteCond %{REQUEST_FILENAME} !-d 
+
+	RewriteRule . index.php
+</IfModule>
